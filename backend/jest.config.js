@@ -1,0 +1,30 @@
+module.exports = {
+  moduleFileExtensions: ['js', 'json', 'ts'],
+  rootDir: '.',
+  testRegex: '.*\\.spec\\.ts$',
+  transform: {
+    '^.+\\.(t|j)s$': 'ts-jest',
+  },
+  collectCoverageFrom: [
+    '**/domain/**/*(usecase|handler|controller|mapper)*.(t|j)s',
+    '**/src/**/*(usecase|handler|controller|mapper)*.(t|j)s',
+    '!**/*.entity.(t|j)s',
+    '!**/*.config.(t|j)s',
+    '!**/node_modules/**',
+    '!**/*.spec.ts',
+    '!**/*.dto.ts',
+    '!**/*.handler.ts',
+    '!**/src/main.ts',
+    '!**/src/config/**',
+    '!**/**.module.ts',
+    '!**/src/db/**',
+    '!**/dist/**',
+  ],
+  coverageDirectory: './coverage',
+  testEnvironment: 'node',
+  moduleNameMapper: {
+    '^domain/(.*)$': '<rootDir>/domain/$1',
+    '^src/(.*)$': '<rootDir>/src/$1',
+  },
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+};
