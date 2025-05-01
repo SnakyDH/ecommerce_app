@@ -10,6 +10,16 @@ export class HttpExceptionHandler {
     if (exception.message === ConstantsException.PRODUCT_NOT_FOUND.toString()) {
       throw new NotFoundException(exception.message);
     }
+    if (
+      exception.message === ConstantsException.PRE_SIGNED_NOT_FOUND.toString()
+    ) {
+      throw new NotFoundException(exception.message);
+    }
+    if (
+      exception.message === ConstantsException.GET_PRESIGNED_ERROR.toString()
+    ) {
+      throw new InternalServerErrorException(exception.message);
+    }
     throw new InternalServerErrorException(exception.message);
   }
 }
